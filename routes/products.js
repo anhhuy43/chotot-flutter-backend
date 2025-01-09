@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middleware/upload");
 const productController = require("../controllers/productController");
-const authMiddleware = require("../middleware/auth");
-console.log("🚀 ~ upload.array", upload.array("images", 5));
+const protect = require("../middleware/auth");
 
 router.post(
   "/",
-  authMiddleware,
+  protect,
   upload.array("images", 5),
   productController.create
 );

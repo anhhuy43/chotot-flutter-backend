@@ -12,7 +12,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// Middleware Multer
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
